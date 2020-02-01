@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+
 
 public class KangarooStats : MonoBehaviour
 {
@@ -31,27 +31,32 @@ public class KangarooStats : MonoBehaviour
 
     }
 
-    private void ValueChanges() {
+    private void ValueChanges()
+    {
 
-        if (Health < 0) {
+        if (Health < 0)
+        {
             Debug.Log("nibba ded");
         }
-    
-    
+
+
     }
 
-    private void updateUI() {
+    private void updateUI()
+    {
 
         Health = Mathf.Clamp(Health, 0, 100);
 
         HealthBar.value = Health;
-    
+
     }
 
-    public void TakeDamage(float num) {
+    public void TakeDamage(float num)
+    {
 
         Health -= num;
-        if (Health < 0) {
+        if (Health < 0)
+        {
             Health = 0;
         }
         updateUI();
