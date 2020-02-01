@@ -7,7 +7,10 @@ public class Cactii : MonoBehaviour
     public Material[] material;
     public int Health;
     Renderer rend;
-    int i = 0;
+
+    public string Name;
+
+    public string InteractText = "Press E to Get Item";
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +22,15 @@ public class Cactii : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
         if (Input.GetKeyDown("e"))
         {
-            
+            rend.enabled = false;
         }
+
+    }
+    public virtual void onInteract()
+    {
 
     }
 }
