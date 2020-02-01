@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDist;
 
     public LayerMask groundLayers;
+    public PlayerInventory inventory;
 
     public BoxCollider col;
     
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<BoxCollider>();
         stats = GetComponentInChildren<PlayerStats>();
         groundDist = col.bounds.extents.y;
+        inventory = GetComponent<PlayerInventory>();
     }
 
     void Update()
