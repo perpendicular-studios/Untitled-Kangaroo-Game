@@ -14,17 +14,5 @@ public class PlayerStats : MonoBehaviour
     public float playerSpeed = 10;
     public float jumpForce;
 
-    // public void TakeDamage(int damage)
-    // {
-    //     playerHealth -= damage;
-    //     if (playerHealth <= 0) {
-    //         Die();
-    //     }
-    // }
-
-    // private void Die()
-    // {
-
-    // }
-
+    
 }

@@ -16,25 +16,40 @@ public class PlayerManager : MonoBehaviour
 
     #endregion
 
-
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (Input.GetKeyDown("e"))
-        {
-            Interactable interactable = GetComponent<Interactable>();
-            if (interactable != null) {
-                Focus = interactable;
-            } else {
-                Focus = null;
-            }
+        player.playerHealth -= damage;
+        if (player.playerHealth <= 0) {
+            Die();
         }
     }
 
-    public Interactable Focus
+    private void Die()
     {
-        get { return focus; }
-        set { focus = value; }
+
     }
+
+    void Update()
+    {
+
+        
+        // Ignore all focus things
+        // if (Input.GetKeyDown("e"))
+        // {
+        //     Interactable interactable = GetComponent<Interactable>();
+        //     if (interactable != null) {
+        //         Focus = interactable;
+        //     } else {
+        //         Focus = null;
+        //     }
+        // }
+    }
+
+    // public Interactable Focus
+    // {
+    //     get { return focus; }
+    //     set { focus = value; }
+    // }
 
     public GameObject player;
 }
