@@ -7,12 +7,15 @@ public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
 
+    private GameObject player;
     private Transform target;
     private NavMeshAgent agent;
+    public int dealDamage;
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag(Constants.PLAYER_TAG).transform;
+        player = GameObject.FindGameObjectWithTag(Constants.PLAYER_TAG);
+        target = player.transform;
         agent = GetComponentInParent<NavMeshAgent>();
     }
 
@@ -27,9 +30,15 @@ public class EnemyController : MonoBehaviour
             if (distance <= agent.stoppingDistance)
             {
                 FaceTarget();
+                Melee();
             }
         }
 
+    }
+
+    void Melee()
+    {
+        player.GetComponentInChildren<PlayerStats>().TakeDamage(dealDamage);
     }
 
     void FaceTarget()

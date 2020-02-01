@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyStats : EntityStats
 {
     // Start is called before the first frame update
+    
     public override void Die()
     {
         base.Die();
