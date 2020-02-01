@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyStats : npcStats
+public class Enemy : Interactable
 {
     // Start is called before the first frame update
-    
-
-    public override void Die()
+    public override void Interact()
     {
-        base.Die();
-
-        // Add ragdoll effect
-
-        Destroy(gameObject);
+        base.Interact();
+        // Atack enemy
     }
 }
