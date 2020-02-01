@@ -11,8 +11,9 @@ public class PlayerStats : MonoBehaviour
     public int playerWater;
 
     [Header("Player Movement")]
-    public float playerSpeed = 10;
-    public float jumpForce;
+    public float playerSpeed;
+    public float jumpVelocity;
+    public float fallMultiplier;
 
     
 }

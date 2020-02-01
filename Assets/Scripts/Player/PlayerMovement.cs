@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public PlayerStats stats;
 
+    
+
     public LayerMask groundLayers;
 
     public CapsuleCollider col;
@@ -20,10 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-         {
-            rb.AddForce(Vector3.up * stats.jumpForce, ForceMode.Impulse);
-         }
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
+           GetComponent<Rigidbody>().velocity = Vector3.up * stats.jumpVelocity;
+        }
+        if (rb.velocity.y < 0) {
+            rb.velocity += Vector3.up * Physics.gravity.y * (stats.fallMultiplier - 1) * Time.deltaTime;
+        }
     }
 
 
