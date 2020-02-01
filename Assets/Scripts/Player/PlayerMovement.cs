@@ -37,9 +37,9 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * stats.playerSpeed * Time.deltaTime;
+        Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * stats.entitySpeed * Time.deltaTime;
         transform.Translate(playerMovement, Space.Self);
-        // transform.position = transform.position + new Vector3(horizontal * stats.playerSpeed * Time.deltaTime, 0, vertical * stats.playerSpeed * Time.deltaTime);
+        // transform.position = transform.position + new Vector3(horizontal * stats.entitySpeed * Time.deltaTime, 0, vertical * stats.entitySpeed * Time.deltaTime);
     }
 
     private bool IsGrounded()
