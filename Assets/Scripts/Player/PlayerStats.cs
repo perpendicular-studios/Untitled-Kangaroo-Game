@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Player Movement")]
     public float playerSpeed;
-    public float jumpForce;
+    public float jumpVelocity;
+    public float fallMultiplier;
 
 }
