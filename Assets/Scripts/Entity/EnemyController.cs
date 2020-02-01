@@ -38,7 +38,8 @@ public class EnemyController : MonoBehaviour
 
     void Melee()
     {
-        player.GetComponentInChildren<PlayerStats>().TakeDamage(dealDamage);
+        PlayerStats stats = player.GetComponentInChildren<PlayerStats>();
+        stats.TakeDamage(20);
     }
 
     void FaceTarget()

@@ -16,6 +16,7 @@ public class BrokenFireStation : MonoBehaviour
     public int Health;
     public int radius;
 
+    public string InteractText = "Press E to interact with Building";
     // Start is called before the first frame update
     void Start()
     {
@@ -23,24 +24,25 @@ public class BrokenFireStation : MonoBehaviour
         rend.enabled = true;
         rend.sharedMaterial = material[0];
 
-        material1 = false;
-        material2 = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    //function to check whether the health is high enough
+    public virtual void onInteractAnimation()
+        
     {
-
-        if (Input.GetKey("e") && Health >= 150)
+        if(Health >= 150)
         {
             rend.sharedMaterial = material[1];
             fixed_FireStation();
-
         }
+
     }
 
+    public virtual void onInteract()
+    {
+    }
 
-   void fixed_FireStation()
+    void fixed_FireStation()
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>.
         refill();

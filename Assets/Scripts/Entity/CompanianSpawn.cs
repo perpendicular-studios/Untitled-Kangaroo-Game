@@ -6,6 +6,7 @@ public class CompanianSpawn : MonoBehaviour
 {
     public GameObject companion;
     public GameObject plane;
+
     public float xPos;
     public float zPos;
     public int companionCount;

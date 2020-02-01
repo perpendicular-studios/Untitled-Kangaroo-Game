@@ -9,6 +9,11 @@ public class PlayerStats : EntityStats
 
     public float jumpVelocity;
     public float fallMultiplier;
+
+    void Start()
+    {
+        entitySpeed = 5;
+    }
     public override void Die()
     {
         base.Die();
