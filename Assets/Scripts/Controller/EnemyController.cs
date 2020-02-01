@@ -8,12 +8,12 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 10f;
     // Start is called before the first frame update
 
-    Transform target;
+    public Transform target;
     NavMeshAgent agent;
 
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        target = GameObject.FindGameObjectWithTag(Constants.PLAYER_TAG).transform;
         agent = GetComponentInParent<NavMeshAgent>();
     }
 

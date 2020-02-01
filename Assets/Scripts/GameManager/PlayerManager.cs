@@ -4,37 +4,30 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public Interactable focus;
-    // Start is called before the first frame update
-    #region Singleton
 
     public static PlayerManager instance;
+    public PlayerMovement player;
 
     void Awake() {
         instance = this;
     }
 
-    #endregion
 
-
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (Input.GetKeyDown("e"))
-        {
-            Interactable interactable = GetComponent<Interactable>();
-            if (interactable != null) {
-                Focus = interactable;
-            } else {
-                Focus = null;
-            }
+        player.stats.playerHealth -= damage;
+        if (player.stats.playerHealth <= 0) {
+            Die();
         }
     }
 
-    public Interactable Focus
+    private void Die()
     {
-        get { return focus; }
-        set { focus = value; }
+
     }
 
-    public GameObject player;
+    void Update()
+    {
+
+    }
 }

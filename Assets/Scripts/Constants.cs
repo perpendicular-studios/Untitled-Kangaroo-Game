@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
-{
-    public float RotationSpeed = 1;
+public class Constants {
+
+    public const string PLAYER_TAG = "Player";
 }
