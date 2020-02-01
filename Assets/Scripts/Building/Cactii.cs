@@ -9,10 +9,11 @@ public class Cactii : MonoBehaviour
     Renderer rend;
 
     public string Name;
+    public Sprite Image;
 
     public string InteractText = "Press E to Get Item";
 
-    // Start is called before the first frame update
+    // set up the cactus
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -20,17 +21,13 @@ public class Cactii : MonoBehaviour
         rend.sharedMaterial = material[0];
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
-        if (Input.GetKeyDown("e"))
-        {
-            rend.enabled = false;
-        }
-
+    void OnInteractAnimation()
+        //makes the cactus dissapear
+    {
+        rend.enabled = false;
     }
     public virtual void onInteract()
     {
-
     }
+
 }
