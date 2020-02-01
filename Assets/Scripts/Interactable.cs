@@ -13,10 +13,10 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider);
         if (collider.gameObject.tag == "Player")
         {
-            Destroy(collider.gameObject);
+            Debug.Log(collider);
+            Destroy(gameObject);
         }
     }
 
