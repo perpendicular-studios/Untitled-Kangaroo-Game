@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    Transform target;
+    public Transform target;
     public float radius = 3f;
 
     void OnDrawGizmosSelected()
@@ -26,11 +26,6 @@ public class Interactable : MonoBehaviour
             Debug.Log(collider);
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        target = PlayerManager.instance.player.transform;
     }
     
     void Update()
