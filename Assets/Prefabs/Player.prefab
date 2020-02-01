@@ -65,11 +65,7 @@ GameObject:
   - component: {fileID: 6108434164923463325}
   m_Layer: 8
   m_Name: Player
-<<<<<<< HEAD
-  m_TagString: player
-=======
   m_TagString: Player
->>>>>>> 363faa436ed15e2533bd26aa831d0a33f1817135
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
