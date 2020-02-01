@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
     private Transform target;
     private NavMeshAgent agent;
+    private float TimeInterval;
+
     public int dealDamage;
 
     void Start()
@@ -17,29 +19,35 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(Constants.PLAYER_TAG);
         target = player.transform;
         agent = GetComponentInParent<NavMeshAgent>();
+        dealDamage = 10;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-
+        TimeInterval += Time.deltaTime;
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-            if (distance <= agent.stoppingDistance)
-            {
+            if (distance <= agent.stoppingDistance + 0.5)
+            {   
                 FaceTarget();
+                if (TimeInterval >= 1)
+                {
+                Debug.Log("NO");
+                TimeInterval = 0;
                 Melee();
+                }
             }
         }
-
     }
 
     void Melee()
     {
         PlayerStats stats = player.GetComponentInChildren<PlayerStats>();
-        stats.TakeDamage(20);
+        stats.TakeDamage(dealDamage);
+        
     }
 
     void FaceTarget()
