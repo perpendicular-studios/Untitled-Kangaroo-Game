@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : EntityStats  
 {
-    [Header("Player Stats")]
-    public int playerHealth = 100;
     public int playerWater;
 
-    [Header("Player Movement")]
-    public float playerSpeed;
     public float jumpVelocity;
     public float fallMultiplier;
+    public override void Die()
+    {
+        base.Die();
+
+        // Add ragdoll effect
+
+        Destroy(gameObject);
+    }
 
 }
