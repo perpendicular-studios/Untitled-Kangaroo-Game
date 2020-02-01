@@ -2,33 +2,37 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public Rigidbody rb;
-    public float forwardForce = 5000f;
-    public float sidewayForce = 5000f;
+
+    public float moveSpeed = 5f;
+    public float jumpForce = 20f;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey("w"))
-        {
-            rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-        }
-        if (Input.GetKey("a"))
-        {
-            rb.AddForce(- sidewayForce * Time.deltaTime, 0, 0);
-        }
-        if (Input.GetKey("s"))
-        {
-            rb.AddForce(0, 0, - forwardForce * Time.deltaTime);
-        }
-        if (Input.GetKey("d"))
-        {
-            rb.AddForce(sidewayForce * Time.deltaTime, 0, 0);
-        }
+         if (Input.GetKeyDown(KeyCode.Space))
+         {
+            rb.AddForce(new Vector3(0, jumpForce * Time.deltaTime, 0), ForceMode.Impulse);
+         }
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        transform.position = transform.position + new Vector3(horizontal * moveSpeed * Time.deltaTime, 0, vertical * moveSpeed * Time.deltaTime);
+       
+
+        Debug.Log(transform.position);
     }
 }
