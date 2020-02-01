@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class npcStats : MonoBehaviour
+public class NPCStats : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth

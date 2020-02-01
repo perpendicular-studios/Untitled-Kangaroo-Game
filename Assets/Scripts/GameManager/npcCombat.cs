@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(npcStats))]
-public class npcCombat : MonoBehaviour
+[RequireComponent(typeof(NPCStats))]
+public class NPCCombat : MonoBehaviour
 {
-    npcStats myStats;
+    NPCStats myStats;
 
     void Start() {
-        myStats = GetComponent<npcStats>();
+        myStats = GetComponent<NPCStats>();
     }
     
-    public void Attack(npcStats targetStats)
+    public void Attack(NPCStats targetStats)
     {
         targetStats.TakeDamage(20);
     }

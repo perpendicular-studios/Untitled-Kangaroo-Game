@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public Interactable focus;
-    // Start is called before the first frame update
-    #region Singleton
 
     public static PlayerManager instance;
+    public PlayerMovement player;
 
     void Awake() {
         instance = this;
     }
 
-    #endregion
 
     public void TakeDamage(int damage)
     {
-        player.playerHealth -= damage;
-        if (player.playerHealth <= 0) {
+        player.stats.playerHealth -= damage;
+        if (player.stats.playerHealth <= 0) {
             Die();
         }
     }
@@ -32,24 +29,5 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
 
-        
-        // Ignore all focus things
-        // if (Input.GetKeyDown("e"))
-        // {
-        //     Interactable interactable = GetComponent<Interactable>();
-        //     if (interactable != null) {
-        //         Focus = interactable;
-        //     } else {
-        //         Focus = null;
-        //     }
-        // }
     }
-
-    // public Interactable Focus
-    // {
-    //     get { return focus; }
-    //     set { focus = value; }
-    // }
-
-    public GameObject player;
 }
