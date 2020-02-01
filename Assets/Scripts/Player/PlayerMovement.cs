@@ -5,6 +5,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody rb;
 
+    public LayerMask groundLayers;
+
+    public CapsuleCollider cap;
+
     public float moveSpeed = 5f;
     public float jumpForce = 20f;
     
@@ -12,12 +16,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<CapsuleCollider>();
     }
 
     void FixedUpdate()
     {
-         if (Input.GetKeyDown(KeyCode.Space))
+         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
          {
             rb.AddForce(new Vector3(0, jumpForce * Time.deltaTime, 0), ForceMode.Impulse);
          }
@@ -34,5 +39,11 @@ public class PlayerMovement : MonoBehaviour
        
 
         Debug.Log(transform.position);
+    }
+
+    private bool IsGrounded()
+    {
+       return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, 
+       col.bounds.center.z), col.radius * .9f, groundLayers) 
     }
 }
