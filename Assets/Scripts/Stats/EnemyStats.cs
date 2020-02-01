@@ -7,6 +7,11 @@ public class EnemyStats : EntityStats
 {
     // Start is called before the first frame update
     
+    void Start()
+    {
+        maxHealth = 20;
+    }
+
     public override void Die()
     {
         base.Die();
