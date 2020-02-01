@@ -5,8 +5,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody rb;
     public PlayerStats stats;
-
-    
+    public PlayerInventory inventory;
 
     public LayerMask groundLayers;
 
@@ -18,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         stats = GetComponentInChildren<PlayerStats>();
+        inventory = GetComponentInChildren<PlayerInventory>();
     }
 
     void FixedUpdate()
