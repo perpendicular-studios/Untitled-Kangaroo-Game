@@ -15,7 +15,7 @@ public class EntityStats : MonoBehaviour
     [Header("Entity Movement")]
     public float entitySpeed;
 
-    void Awake()	
+    void Start()	
     {	
         currentHealth = maxHealth;	
     }	
@@ -23,10 +23,11 @@ public class EntityStats : MonoBehaviour
     public void TakeDamage(int damage)	
     {	
         currentHealth -= damage;	
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)	
         {	
             Die();	
-        }	
+        }
     }	
 
     public virtual void Die()	
