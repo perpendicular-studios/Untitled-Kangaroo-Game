@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public CapsuleCollider col;
 
     public float moveSpeed = 5f;
-    public float jumpForce = 20f;
+    public float jumpForce = 200f;
     
     
     // Start is called before the first frame update
@@ -22,9 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector3 movement = new Vector3(0, 0, 0);
+
          if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
          {
-            rb.AddForce(new Vector3(0, jumpForce * Time.deltaTime, 0), ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce * Time.deltaTime, ForceMode.Impulse);
          }
     }
 
