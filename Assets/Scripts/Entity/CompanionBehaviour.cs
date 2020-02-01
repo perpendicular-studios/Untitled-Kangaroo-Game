@@ -5,8 +5,11 @@ using UnityEngine;
 public class CompanionBehaviour : MonoBehaviour
 {
     public GameObject player;
-    public Transform mTarget;
-    float mSpeed = 10.0f;
+    float mSpeed = 5.0f;
+
+    float distance = 1.0f;
+
+    float epsilon = 4.0f;
 
 
     // Start is called before the first frame update
@@ -16,10 +19,14 @@ public class CompanionBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.LookAt(player.transform.position);
+        //transform.LookAt(player.transform.position);
 
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.1f*Time.deltaTime);
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        
+        if (distance > epsilon) {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, mSpeed*Time.deltaTime);
+        }
     }
 }
