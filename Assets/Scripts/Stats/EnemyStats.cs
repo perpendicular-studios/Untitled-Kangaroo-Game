@@ -1,17 +1,17 @@
-﻿// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-// public class EnemyStats : CharacterStats
-// {
-//     // Start is called before the first frame update
-//     public override void Die()
-//     {
-//         base.Die();
+public class EnemyStats : EntityStats
+{
+    // Start is called before the first frame update
+    public override void Die()
+    {
+        base.Die();
 
-//         // Add ragdoll effect
+        // Add ragdoll effect
 
-//         Destroy(gameObject);
-//     }
-// }
+        Destroy(gameObject);
+    }
+}
