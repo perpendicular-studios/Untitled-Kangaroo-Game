@@ -26,12 +26,27 @@ public class PlayerCompanion : MonoBehaviour
             if (hit.tag == "Companion" && stats.currentCompanions < stats.maxCompanions) 
             {
                 referenceObject = hit.gameObject;
-                referenceScript = referenceObject.GetComponent<CompanionBehaviour>();
 
-                if (!(referenceScript.hasMasterGetter())) 
+                if (hit.gameObject.name == "Health Roo(Clone)")
                 {
-                    referenceScript.OnRescue();
-                    stats.currentCompanions += 1;
+                    referenceScript = referenceObject.GetComponent<HealthRooBehaviour>();
+                    if (!(referenceScript.hasMasterGetter())) 
+                        {
+                            referenceScript.OnRescue();
+                            stats.currentCompanions += 1;
+                            Debug.Log(stats.currentCompanions);
+                        }
+
+                } else if (hit.gameObject.name == "Speed Roo(Clone)")
+                {
+                    referenceScript = referenceObject.GetComponent<SpeedRooBehaviour>();
+                    if (!(referenceScript.hasMasterGetter())) 
+                        {
+                            referenceScript.OnRescue();
+                            Debug.Log(stats.currentCompanions);
+                            stats.currentCompanions += 1;
+                        }
+
                 }
                 
             }
