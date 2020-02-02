@@ -6,10 +6,8 @@ public class Cactii : MonoBehaviour
 {
     public Material[] material;
     public int Health;
-    Renderer rend;
-
-    public string Name;
-    public Sprite Image;
+    public Renderer rend;
+    public CapsuleCollider meshCollider;
 
     public string InteractText = "Press E to Get Item";
 
@@ -19,13 +17,10 @@ public class Cactii : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         rend.sharedMaterial = material[0];
+        meshCollider = GetComponent<CapsuleCollider>();
+        meshCollider.enabled = true;
     }
 
-    void OnInteractAnimation()
-        //makes the cactus dissapear
-    {
-        rend.enabled = false;
-    }
     public virtual void onInteract()
     {
     }

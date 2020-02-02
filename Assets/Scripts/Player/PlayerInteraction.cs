@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
 
-    public Cactii mInteractCac;
-    public BrokenFireStation mInteractFire;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -5,13 +5,15 @@ using UnityEngine;
 public class CompanionBehaviour : MonoBehaviour
 {
     public GameObject player;
+
+    public PlayerStats stats;
     float mSpeed = 3.0f;
 
     float distance = 1.0f;
 
     float epsilon = 4.0f;
 
-    bool hasMaster = false;
+    protected bool hasMaster = false;
 
     public bool hasMasterGetter () {
         return hasMaster;
@@ -22,12 +24,14 @@ public class CompanionBehaviour : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        stats = GameObject.FindGameObjectWithTag("PlayerStats").GetComponent<PlayerStats>();
     }
 
-    public void OnRescue() {
+    public virtual void OnRescue() {
         if (!hasMaster) {
             hasMaster = !hasMaster;
         }
+        
     }
 
     // Update is called once per frame

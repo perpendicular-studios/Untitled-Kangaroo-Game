@@ -6,12 +6,11 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
-
+    private float TimeInterval;
     private GameObject player;
     private Transform target;
     private NavMeshAgent agent;
     private EnemyStats stats;
-    private float TimeInterval;
 
     void Start()
     {
@@ -30,7 +29,7 @@ public class EnemyController : MonoBehaviour
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-            if (distance <= agent.stoppingDistance + 0.5)
+            if (distance <= agent.stoppingDistance + 0.2)
             {   
                 FaceTarget();
                 if (TimeInterval >= 1)
