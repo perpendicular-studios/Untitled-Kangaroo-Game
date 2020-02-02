@@ -10,16 +10,16 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
     private Transform target;
     private NavMeshAgent agent;
+    private EnemyStats stats;
     private float TimeInterval;
-
-    public int dealDamage;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(Constants.PLAYER_TAG);
         target = player.transform;
         agent = GetComponentInParent<NavMeshAgent>();
-        dealDamage = 10;
+        stats = GetComponent<EnemyStats>();
+        stats.dealDamage = 10;
     }
 
     // Update is called once per frame
@@ -45,8 +45,8 @@ public class EnemyController : MonoBehaviour
 
     void Melee()
     {
-        PlayerStats stats = player.GetComponentInChildren<PlayerStats>();
-        stats.TakeDamage(dealDamage);
+        PlayerStats playerStats = player.GetComponentInChildren<PlayerStats>();
+        playerStats.TakeDamage(stats.dealDamage);
         
     }
 
