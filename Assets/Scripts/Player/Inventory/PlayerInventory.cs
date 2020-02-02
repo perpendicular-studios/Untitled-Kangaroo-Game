@@ -18,17 +18,25 @@ public class PlayerInventory : MonoBehaviour
     public bool AddItem(Item item)
     {
         int index = item.id;
-        Debug.Log("playerItems[index] out of bound");
-        if (playerItems[index].stackSize > 0)
-        {
-            int currentStackSize = playerItems[index].stackSize;
-            int itemToAddStackSize = item.stackSize;
+        Item inventoryItem = playerItems[index];
 
-            if (currentStackSize + itemToAddStackSize < Constants.MAX_ITEM_STACK_SIZE)
+        if (inventoryItem != null)
+        {
+            if (playerItems[index].stackSize > 0)
             {
-                playerItems[index].stackSize += itemToAddStackSize;
-                return true;
+                int currentStackSize = playerItems[index].stackSize;
+                int itemToAddStackSize = item.stackSize;
+
+                if (currentStackSize + itemToAddStackSize < Constants.MAX_ITEM_STACK_SIZE)
+                {
+                    playerItems[index].stackSize += itemToAddStackSize;
+                    return true;
+                }
             }
+        }
+        else
+        {
+            playerItems[index] = item;
         }
         
         return false;

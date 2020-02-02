@@ -15,7 +15,14 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-
+        if(Input.GetKey(KeyCode.R))
+        {
+            player.extinguishBeam.gameObject.SetActive(true);
+        }
+        else
+        {
+            player.extinguishBeam.gameObject.SetActive(false);
+        }
     }
 
 }

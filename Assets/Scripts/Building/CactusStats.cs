@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CactusStats : BuildingStats
 {
-    public EntityStats stats;
+    public PlayerStats stats;
 
     private void Awake()
     {
