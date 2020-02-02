@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class FireStationStats : BuildingStats
 {
-    private GameObject player;
-    public int radius = 10;
-    public int regen_Rate = 20;
+    public BrokenFireStation BrokeFS;
+    public bool material1;
+    public Material material;
+
     private void Awake()
     {
-        maxHealth = 250;
+        maxHealth = 100;
+        BrokeFS = GetComponentInParent<BrokenFireStation>();
+        material1 = false;
+        //BrokeFS.material.
     }
-
-    public override void Oninteract()
+    void Update()
     {
-        InteractText = "Press E to Interact";
-        player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        regen();
 
-    }
-    public void regen()
-    {
-        Collider[] player_InRange = Physics.OverlapSphere(this.transform.position, radius);
-        foreach(Collider col in player_InRange)
+        Collider[] hits = Physics.OverlapSphere(transform.position, 2);
+        foreach (Collider hit in hits)
         {
-            //col.gameObject.GetComponent<EntityStats>().playerWater += regen_Rate;
-        }
 
+            //Debug.Log("reeee");
+            if (Input.GetKeyDown("e") && (hit.gameObject.name == "Player") && material1 == true)
+            {
+                //Debug.Log("test");
+                stats.playerWater += 15;
+                BrokeFS.rend.enabled = true;
+                /*BrokeFS.meshCollider.sharedMaterial;*/
+            }
+
+
+        }
     }
 }

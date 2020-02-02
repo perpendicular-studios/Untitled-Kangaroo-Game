@@ -9,9 +9,11 @@ public class BuildingStats : MonoBehaviour
     public int healthThreshold;
     Material[] materials;
 
-    Renderer rend;
+    protected Renderer rend;
 
     public string InteractText = "Press E to Interact";
+
+    public PlayerStats stats;
 
     public int currentHealth
     {
@@ -19,11 +21,9 @@ public class BuildingStats : MonoBehaviour
         private set;
     }
 
-    private void Start()
+    void Start()
     {
-        rend = GetComponent<Renderer>();
-        rend.enabled = true;
-        rend.sharedMaterial = materials[0];
+        stats = GameObject.FindGameObjectWithTag("PlayerStats").GetComponent<PlayerStats>();
     }
 
     public void TakeDamage(int damage)

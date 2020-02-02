@@ -39,6 +39,7 @@ public class PlayerStats : EntityStats
 
     void Awake()
     {
+        playerWater = 0;
         maxHealth = 50;
         entitySpeed = 5;
         currentCompanions = 0;

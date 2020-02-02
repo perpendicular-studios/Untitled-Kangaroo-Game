@@ -6,13 +6,28 @@ public class ExtinguishBeamController : MonoBehaviour
 {
     public ParticleSystem _particleSystem;
     public Transform mParticleSystem;
+    public PlayerStats stats;
     private MeshRenderer mRenderer;
+    private float nextActionTime = 0.0f;
+    public float period = 1.0f;
 
     public void Awake()
     {
         mRenderer = GetComponent<MeshRenderer>();
         _particleSystem.Stop();
     }
+
+    public void Update()
+    {
+        if(nextActionTime > period)
+        {
+            stats.playerWater -= 1;
+            nextActionTime = 0;
+        }
+
+        nextActionTime += Time.deltaTime;
+    }
+
 
     void OnTriggerEnter(Collider other)
     {

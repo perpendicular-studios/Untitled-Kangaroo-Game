@@ -15,9 +15,16 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.R))
+        if (player.stats.playerWater > 0)
         {
-            player.extinguishBeam.gameObject.SetActive(true);
+            if (Input.GetKey(KeyCode.R))
+            {
+                player.extinguishBeam.gameObject.SetActive(true);
+            }
+            else
+            {
+                player.extinguishBeam.gameObject.SetActive(false);
+            }
         }
         else
         {
