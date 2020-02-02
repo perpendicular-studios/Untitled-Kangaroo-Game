@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class EnemyStats : EntityStats
 {
     
-    public int dealDamage;
     public GameObject TapePrefab;
 
     void Awake()
     {
-        maxHealth = currentHealth;
+        maxHealth = 80;
     }
 
     public int MaxHealth

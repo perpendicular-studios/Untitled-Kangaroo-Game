@@ -7,6 +7,7 @@ public class EntityStats : MonoBehaviour
     [Header("Entity Stats")]
     public int maxHealth;
     public int currentHealth;
+    public int dealDamage;
 
     [Header("Entity Movement")]
     public float entitySpeed;

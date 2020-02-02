@@ -44,6 +44,7 @@ public class PlayerStats : EntityStats
         currentCompanions = 0;
         maxCompanions = 2;
         companionList = new GameObject[maxCompanions];
+        dealDamage = 5;
         
     }
 public override void Die()

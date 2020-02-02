@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
         target = player.transform;
         agent = GetComponentInParent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
-        stats.dealDamage = 10;
+        stats.dealDamage = 10;                             
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-            if (distance <= agent.stoppingDistance + 0.2)
+            if (distance <= agent.stoppingDistance + 0.25)
             {   
                 FaceTarget();
                 if (TimeInterval >= 1)
@@ -40,6 +40,20 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnTriggerEnter(Collider collider) {
+        InvokeRepeating("ReceiveDamage", 0.5f, 0.5f);
+    }
+
+    void ReceiveDamage()
+    {
+        PlayerStats playerStats = player.GetComponentInChildren<PlayerStats>();
+        stats.TakeDamage(playerStats.dealDamage);
+    }
+
+    void OnTriggerExit(Collider collider) {
+        CancelInvoke();
     }
 
     void Melee()
