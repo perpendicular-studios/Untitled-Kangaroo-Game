@@ -10,10 +10,20 @@ public class PlayerStats : EntityStats
     public float jumpVelocity;
     public float fallMultiplier;
 
+    public int maxCompanions;
+
+    public int currentCompanions
+    {	
+        get;	
+        set;	
+    }
+
     void Awake()
     {
         maxHealth = 50;
         entitySpeed = 5;
+        maxCompanions = 2;
+        currentCompanions = 0;
     }
     public override void Die()
     {

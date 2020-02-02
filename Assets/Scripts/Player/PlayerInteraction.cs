@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
 
-    private Cactii mInteractCac;
-    private BrokenFireStation mInteractFire;
+    public Cactii mInteractCac;
+    public BrokenFireStation mInteractFire;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +18,14 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f"))
-        {
-            mInteractFire.onInteractAnimation();
-        }
-        if (Input.GetKeyDown("f"))
-        {
-            mInteractCac.OnInteractAnimation();
-        }
+        // if (Input.GetKeyDown("f"))
+        // {
+        //     mInteractFire.onInteractAnimation();
+        // }
+        // if (Input.GetKeyDown("f"))
+        // {
+        //     mInteractCac.OnInteractAnimation();
+        // }
 
 
 
