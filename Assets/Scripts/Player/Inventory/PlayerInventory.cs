@@ -20,7 +20,6 @@ public class PlayerInventory : MonoBehaviour
     }
 
     public Item GetItemById(int id) {
-        Debug.Log(id);
         return playerItems[id];
     }
     public bool AddItem(Item item)

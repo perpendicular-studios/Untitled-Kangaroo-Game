@@ -23,8 +23,6 @@ public class InventorySlotGroup : MonoBehaviour
         {
             currentIndex++;
         }
-
-        Debug.Log($"count: {playerInventory.Count}");
         if (playerInventory.Count != 0)
         {
             Item centerItem = playerInventory.GetItemById(currentIndex);
