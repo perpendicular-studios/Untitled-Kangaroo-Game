@@ -5,8 +5,17 @@ using UnityEngine;
 public class CompanionBehaviour : MonoBehaviour
 {
     public GameObject player;
-    public Transform mTarget;
-    float mSpeed = 10.0f;
+    float mSpeed = 3.0f;
+
+    float distance = 1.0f;
+
+    float epsilon = 4.0f;
+
+    bool hasMaster = false;
+
+    public bool hasMasterGetter () {
+        return hasMaster;
+    }
 
 
     // Start is called before the first frame update
@@ -15,11 +24,22 @@ public class CompanionBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        transform.LookAt(player.transform.position);
+    public void OnRescue() {
+        if (!hasMaster) {
+            hasMaster = !hasMaster;
+        }
+    }
 
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.1f*Time.deltaTime);
+    // Update is called once per frame
+    void Update()
+    {
+        //transform.LookAt(player.transform.position);
+        if (hasMaster) {
+            distance = Vector3.Distance(transform.position, player.transform.position);
+            
+            if (distance > epsilon) {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, mSpeed*Time.deltaTime);
+            }
+        }
     }
 }

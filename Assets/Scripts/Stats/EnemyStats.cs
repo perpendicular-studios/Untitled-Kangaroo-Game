@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class EnemyStats : EntityStats
 {
-    // Start is called before the first frame update
     
-    void Start()
+    void Awake()
     {
-        maxHealth = 20;
+        maxHealth = 100;
     }
 
     public override void Die()

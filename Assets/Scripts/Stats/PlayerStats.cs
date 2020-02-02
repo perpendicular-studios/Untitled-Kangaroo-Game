@@ -10,17 +10,28 @@ public class PlayerStats : EntityStats
     public float jumpVelocity;
     public float fallMultiplier;
 
-    void Start()
+    public int maxCompanions;
+
+    public int currentCompanions
+    {	
+        get;	
+        set;	
+    }
+
+    void Awake()
     {
+        maxHealth = 50;
         entitySpeed = 5;
+        maxCompanions = 2;
+        currentCompanions = 0;
     }
     public override void Die()
     {
         base.Die();
-
         // Add ragdoll effect
 
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
+
     }
 
 }
