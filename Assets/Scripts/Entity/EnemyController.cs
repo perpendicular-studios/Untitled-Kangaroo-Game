@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
         target = player.transform;
         agent = GetComponentInParent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
-        stats.dealDamage = 10;                             
+        stats.dealDamage = 10;
     }
 
     // Update is called once per frame
