@@ -10,6 +10,8 @@ public class PlayerCompanion : MonoBehaviour
 
     CompanionBehaviour referenceScript;
 
+    int counter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class PlayerCompanion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Collider[] hits = Physics.OverlapSphere(transform.position, 2);
         foreach (Collider hit in hits) 
         {
@@ -33,8 +36,9 @@ public class PlayerCompanion : MonoBehaviour
                     if (!(referenceScript.hasMasterGetter())) 
                         {
                             referenceScript.OnRescue();
+                            stats.CompanionList[counter] = referenceObject;
+                            counter++;
                             stats.currentCompanions += 1;
-                            Debug.Log(stats.currentCompanions);
                         }
 
                 } else if (hit.gameObject.name == "Speed Roo(Clone)")
@@ -43,7 +47,8 @@ public class PlayerCompanion : MonoBehaviour
                     if (!(referenceScript.hasMasterGetter())) 
                         {
                             referenceScript.OnRescue();
-                            Debug.Log(stats.currentCompanions);
+                            stats.CompanionList[counter] = referenceObject;
+                            counter++;
                             stats.currentCompanions += 1;
                         }
 

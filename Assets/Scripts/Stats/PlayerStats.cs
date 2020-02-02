@@ -18,12 +18,33 @@ public class PlayerStats : EntityStats
         set;	
     }
 
+    private GameObject[] companionList;
+
+    public GameObject[] CompanionList
+    {
+        get
+        {
+            return companionList;
+        }
+        set
+        {
+            companionList = value;
+        }
+    }
+
+    public int sizeOfList() 
+    {
+        return companionList.Length;
+    }
+
     void Awake()
     {
         maxHealth = 50;
         entitySpeed = 5;
-        maxCompanions = 2;
         currentCompanions = 0;
+        maxCompanions = 2;
+        companionList = new GameObject[maxCompanions];
+        
     }
     public override void Die()
     {
