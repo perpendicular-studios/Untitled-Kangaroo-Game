@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
 
+    public ExtinguishBeamController extinguishBeam;
     public Rigidbody rb;
     public PlayerStats stats;
     public float groundDist;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
         stats = GetComponentInChildren<PlayerStats>();
         groundDist = col.bounds.extents.y;
         inventory = GetComponent<PlayerInventory>();
+
+        extinguishBeam = GetComponentInChildren<ExtinguishBeamController>();
     }
 
     void Update()
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y < 0) {
             rb.velocity += Vector3.up * Physics.gravity.y * (stats.fallMultiplier - 1) * Time.deltaTime;
         }
+
     }
 
     private bool IsGrounded()
