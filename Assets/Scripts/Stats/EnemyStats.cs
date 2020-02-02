@@ -6,9 +6,17 @@ using UnityEngine.UI;
 public class EnemyStats : EntityStats
 {
     
+    public int dealDamage;
+
     void Awake()
     {
-        maxHealth = 100;
+        maxHealth = currentHealth;
+    }
+
+    public int MaxHealth
+    {
+        get { return maxHealth; }
+        set { maxHealth = value; }
     }
 
     public override void Die()
