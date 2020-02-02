@@ -24,7 +24,7 @@ public class FireStationStats : BuildingStats
         Collider[] player_InRange = Physics.OverlapSphere(this.transform.position, radius);
         foreach(Collider col in player_InRange)
         {
-            col.gameObject.GetComponent<EntityStats>().playerWater += regen_Rate;
+            //col.gameObject.GetComponent<EntityStats>().playerWater += regen_Rate;
         }
 
     }
