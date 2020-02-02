@@ -6,11 +6,7 @@ public class EntityStats : MonoBehaviour
 {	
     [Header("Entity Stats")]
     public int maxHealth;
-    public int currentHealth
-    {	
-        get;	
-        private set;	
-    }	
+    public int currentHealth;
 
     [Header("Entity Movement")]
     public float entitySpeed;
