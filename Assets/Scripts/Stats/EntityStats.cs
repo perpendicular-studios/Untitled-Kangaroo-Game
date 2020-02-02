@@ -13,7 +13,7 @@ public class EntityStats : MonoBehaviour
 
     void Start()	
     {	
-        currentHealth = maxHealth;	
+        currentHealth = maxHealth;
     }	
 
     public void TakeDamage(int damage)	
@@ -28,7 +28,8 @@ public class EntityStats : MonoBehaviour
 
     public virtual void Die()	
     {	
-        // Die in some way	
+        // Die in some way
+        
         Debug.Log(transform.name + " died...");	
     }	
 }	
