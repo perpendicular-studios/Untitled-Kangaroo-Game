@@ -15,7 +15,7 @@ public class CactusStats : BuildingStats
     public override void Oninteract()
     {
         InteractText = "Press E to Interact";
-        stats.playerWater += 15;
+        // stats.playerWater += 15;
 
     }
 

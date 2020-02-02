@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
     public bool AddItem(Item item)
     {
         int index = item.id;
+        Debug.Log("playerItems[index] out of bound");
         if (playerItems[index].stackSize > 0)
         {
             int currentStackSize = playerItems[index].stackSize;
