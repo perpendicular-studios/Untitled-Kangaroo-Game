@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInventory inventory;
 
     public BoxCollider col;
+
+    public Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         stats = GetComponentInChildren<PlayerStats>();
         groundDist = col.bounds.extents.y;
         inventory = GetComponent<PlayerInventory>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -29,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 playerMovement = new Vector3(horizontal, 0f, vertical) * stats.entitySpeed * Time.deltaTime;
         transform.Translate(playerMovement, Space.Self);
-        
-         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() ) {
            rb.velocity = Vector3.up * stats.jumpVelocity;
         }
         if (rb.velocity.y < 0) {
@@ -40,6 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-       return Physics.Raycast(transform.position, -Vector3.up, groundDist + 0.2f);
+       return Physics.Raycast(transform.position, -Vector3.up, groundDist - 0.605f);
     }
 }
