@@ -46,13 +46,8 @@ public class PlayerStats : EntityStats
         companionList = new GameObject[maxCompanions];
         
     }
-    public override void Die()
+public override void Die()
     {
-        base.Die();
-        // Add ragdoll effect
-
-        Destroy(transform.parent.gameObject);
-
+        FindObjectOfType<GameOver>().EndGame();
     }
-
 }
