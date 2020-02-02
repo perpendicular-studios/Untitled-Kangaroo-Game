@@ -7,6 +7,7 @@ public class EnemyStats : EntityStats
 {
     
     public int dealDamage;
+    public GameObject TapePrefab;
 
     void Awake()
     {
@@ -21,10 +22,13 @@ public class EnemyStats : EntityStats
 
     public override void Die()
     {
-        base.Die();
-
+        Debug.Log("TAPE GENERATING!");
         // Add ragdoll effect
 
+        // drop = ScriptableObject.CreateInstance("Tape");
+        // Destroy(gameObject);
+        
+        Instantiate(TapePrefab, transform.position + Vector3.up, Quaternion.FromToRotation(Vector3.up, Vector3.forward));
         Destroy(gameObject);
     }
 }

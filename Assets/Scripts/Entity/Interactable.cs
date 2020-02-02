@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float radius = 3f;
+    public float radius = 1f;
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -15,7 +15,14 @@ public class Interactable : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            Debug.Log(collider);
+            Debug.Log(gameObject.tag);
+            // gameObject.tag;
+			Item item = Resources.Load<Item>("Items/" + gameObject.tag);
+            item.stackSize++;
+            Debug.Log(item.id);
+            PlayerInventory inventory = collider.transform.Find("PlayerInventory").gameObject.GetComponent<PlayerInventory>();
+            
+            inventory.AddItem(item);
             Destroy(gameObject);
         }
     }
