@@ -6,7 +6,6 @@ public class CompanianSpawn : MonoBehaviour
 {
     public GameObject companion;
     public GameObject plane;
-    public PlayerStats stats;
 
     public float xPos;
     public float zPos;
@@ -20,7 +19,7 @@ public class CompanianSpawn : MonoBehaviour
     }
 
     IEnumerator Spawn() {
-        while (companionCount <= stats.maxCompanions) {
+        while (companionCount < 3) {
             xPos = Random.Range(plane.transform.position.x, plane.transform.localScale.x);
             zPos = Random.Range(plane.transform.position.z, plane.transform.localScale.z);
             Instantiate(companion, new Vector3(xPos, 0, zPos), Quaternion.identity);
