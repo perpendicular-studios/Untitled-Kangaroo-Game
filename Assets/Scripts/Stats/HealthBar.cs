@@ -6,29 +6,17 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Image currentHealthbar;
-    private float currentHealth = 2;
-    private float maxHealth = 150;
+    public PlayerStats stats;
     private float ratio;
 
 
-    private void Start()
-    {
-        UpdateHealthbar();
-    }
 
-    private void UpdateHealthbar()
+    public void FixedUpdate()
     {
-        ratio = currentHealth / maxHealth;
+        ratio =  ((float)stats.currentHealth / (float)stats.maxHealth);
+        Debug.Log("RATIO:");
+        Debug.Log(ratio);
         currentHealthbar.rectTransform.localScale = new Vector3(ratio, 1, 1);
     }
 
-    private void TakeDamage(float damage)
-    {
-
-    }
-
-    private void HealDamage(float heal)
-    {
-
-    }
 }

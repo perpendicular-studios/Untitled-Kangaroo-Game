@@ -28,7 +28,7 @@ public class CompanianSpawn : MonoBehaviour
         while (companionCount < 3) {
             xPos = Random.Range(plane.transform.position.x, plane.transform.localScale.x);
             zPos = Random.Range(plane.transform.position.z, plane.transform.localScale.z);
-            Instantiate(companionList[Random.Range(0,companionList.Length)], new Vector3(xPos, 0, zPos), Quaternion.identity);
+            Instantiate(companionList[Random.Range(0,companionList.Length)], new Vector3(xPos, 10, zPos), Quaternion.identity);
             companionCount += 1;
             yield return null;
         }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerStats : EntityStats  
 {
     public int playerWater;
-
+    public int maxWater;
     public float jumpVelocity;
     public float fallMultiplier;
 
@@ -39,8 +39,9 @@ public class PlayerStats : EntityStats
 
     void Awake()
     {
+        maxWater = 300;
         playerWater = 0;
-        maxHealth = 50;
+        maxHealth = 100;
         entitySpeed = 5;
         currentCompanions = 0;
         maxCompanions = 2;
