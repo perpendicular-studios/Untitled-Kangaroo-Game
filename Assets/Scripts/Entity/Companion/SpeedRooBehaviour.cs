@@ -9,7 +9,6 @@ public class SpeedRooBehaviour : CompanionBehaviour
         if (!hasMaster) {
             hasMaster = !hasMaster;
             stats.entitySpeed = stats.entitySpeed*speedMultiplier;
-            Debug.Log(stats.entitySpeed);
         }
     }
 }

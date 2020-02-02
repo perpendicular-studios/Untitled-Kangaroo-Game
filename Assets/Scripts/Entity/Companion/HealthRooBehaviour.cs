@@ -11,7 +11,6 @@ public class HealthRooBehaviour : CompanionBehaviour
             hasMaster = !hasMaster;
             stats.maxHealth = stats.maxHealth+healthAdder;
             stats.currentHealth = stats.currentHealth+healthAdder;
-            Debug.Log(stats.maxHealth);
         }
     }
 }
