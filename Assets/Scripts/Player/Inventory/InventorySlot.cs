@@ -22,6 +22,7 @@ public class InventorySlot : MonoBehaviour
 
         if(item)
         {
+            Debug.Log(item);
             displayText.text = item.itemName;
             stackSizeText.text = $"{item.stackSize}";
             displayImage.sprite = item.icon;

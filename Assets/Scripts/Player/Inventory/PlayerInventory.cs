@@ -5,19 +5,28 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 
-    public List<Item> PlayerItems { get { return playerItems; } }
     private List<Item> playerItems;
 
     public int Count { get { return playerItems.Count; } }
 
+
     public void Start()
     {
         playerItems = new List<Item>();
+        for(int i = 0; i < 10; i++) {
+            playerItems.Add(null);
+            Debug.Log(Count);
+        }
     }
 
+    public Item GetItemById(int id) {
+        Debug.Log(id);
+        return playerItems[id];
+    }
     public bool AddItem(Item item)
     {
         int index = item.id;
+        Debug.Log(item.id);
         Item inventoryItem = playerItems[index];
 
         if (inventoryItem != null)
@@ -36,7 +45,9 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
+            Debug.Log(item.id);
             playerItems[index] = item;
+            return true;
         }
         
         return false;

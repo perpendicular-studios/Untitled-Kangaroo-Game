@@ -18,8 +18,8 @@ public class Interactable : MonoBehaviour
             Debug.Log(gameObject.tag);
             // gameObject.tag;
 			Item item = Resources.Load<Item>("Items/" + gameObject.tag);
-            Debug.Log(item.id);
             item.stackSize++;
+            Debug.Log(item.id);
             PlayerInventory inventory = collider.transform.Find("PlayerInventory").gameObject.GetComponent<PlayerInventory>();
             
             inventory.AddItem(item);
