@@ -5,13 +5,7 @@ using UnityEngine;
 public class InventorySlotGroup : MonoBehaviour
 {
     [SerializeField]
-    public InventorySlot leftSlot;
-
-    [SerializeField]
     public InventorySlot centerSlot;
-
-    [SerializeField]
-    public InventorySlot rightSlot;
 
     [SerializeField]
     public PlayerInventory playerInventory;
@@ -20,19 +14,20 @@ public class InventorySlotGroup : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.O) && currentIndex > 0)
+        {
+            currentIndex--;
+        }
+
+        if(Input.GetKeyDown(KeyCode.P) && currentIndex < playerInventory.Count)
+        {
+            currentIndex++;
+        }
+
         if (playerInventory.Count != 0)
         {
             Item centerItem = playerInventory.PlayerItems[currentIndex];
             centerSlot.item = centerItem;
-            if (currentIndex + 1 < playerInventory.Count)
-            {
-                rightSlot.item = playerInventory.PlayerItems[currentIndex + 1];
-            }
-
-            if (currentIndex - 1 < playerInventory.Count)
-            {
-                leftSlot.item = playerInventory.PlayerItems[currentIndex - 1];
-            }
         }
     }
 }
