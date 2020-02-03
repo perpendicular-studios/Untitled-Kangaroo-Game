@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     public PlayerMovement player;
-    public boolean scammed = true;
+    // public boolean scammed = true;
     void Awake() {
         instance = this;
     }
@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown("q"))
+            player.stats.playerWater = player.stats.maxWater;
         if (player.stats.playerWater > 0)
         {
             if (Input.GetKey(KeyCode.R))

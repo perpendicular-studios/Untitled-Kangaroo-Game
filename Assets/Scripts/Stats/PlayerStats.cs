@@ -49,6 +49,8 @@ public class PlayerStats : EntityStats
         dealDamage = 5;
         
     }
+
+
 public override void Die()
     {
         FindObjectOfType<GameOver>().EndGame();
