@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     public PlayerMovement player;
-    // public boolean scammed = true;
+    public bool scammed = true;
     void Awake() {
         instance = this;
     }
