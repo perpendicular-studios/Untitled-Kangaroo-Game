@@ -20,12 +20,13 @@ public class CactusStats : BuildingStats
         {
             
             //Debug.Log("reeee");
-            if ( Input.GetKeyDown("e") && (hit.gameObject.name == "Player"))
+            if ( Input.GetKeyDown(KeyCode.E) && (hit.gameObject.name == "Player") && stats.playerWater < stats.maxWater - 15)
             {
                 //Debug.Log("test");
                 stats.playerWater += 15;
                 cactus.rend.enabled = false;
                 cactus.meshCollider.enabled = false;
+                Destroy(this);
             }
 
             

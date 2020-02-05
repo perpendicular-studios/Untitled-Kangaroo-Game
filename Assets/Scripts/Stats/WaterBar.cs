@@ -13,8 +13,6 @@ public class WaterBar : MonoBehaviour
     public void FixedUpdate()
     {
         ratio =  ((float)stats.playerWater / (float)stats.maxWater);
-        Debug.Log("RATIO WATER:");
-        Debug.Log(ratio);
         currentWaterbar.rectTransform.localScale = new Vector3(ratio, 1, 1);
     }
 
